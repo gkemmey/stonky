@@ -1,0 +1,24 @@
+<h2 class="text-2xl font-bold">Sign in</h2>
+
+<div class="w-full max-w-md mt-8">
+  <%= tailwind_form_with scope: :session, url: sessions_path, method: :post do |f| %>
+    <div class="grid grid-cols-1 gap-6 bg-gr">
+      <%= f.label :username do %>
+        <%= f.text_field :username, autocomplete: "username" %>
+      <% end %>
+
+      <%= f.label :password do %>
+        <%= f.password_field :password, autocomplete: "current-password" %>
+      <% end %>
+
+      <%= f.submit "Submit", class: [
+                                      "bg-green-500",
+                                      "hover:bg-green-700",
+                                      "px-4",
+                                      "py-2",
+                                      "rounded",
+                                      "text-white"
+                                    ].join(" ") %>
+    </div>
+  <% end %>
+</div>

@@ -20,6 +20,15 @@ default: &default
   # For details on connection pooling, see Rails configuration guide
   # https://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  timeout: 5000
+  host: <%= ENV['DATABASE_HOST'] %>
+  username: <%= ENV['DATABASE_USER'] || `whoami` %>
+  <% if ENV['DATABASE_PASSWORD'] %>
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+  <% end %>
+  <% if ENV["DATABASE_URL"] %>
+  url: <%= ENV["DATABASE_URL"] %>
+  <% end %>
 
 development:
   <<: *default
@@ -82,5 +91,3 @@ test:
 production:
   <<: *default
   database: stonky_production
-  username: stonky
-  password: <%= ENV['STONKY_DATABASE_PASSWORD'] %>
