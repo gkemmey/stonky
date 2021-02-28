@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
-  root to: redirect("/sessions/new")
+  root to: 'stock_checks#new'
 
-  resources :sessions, only: [:new, :create, :destroy]
+  resources :sessions, only: [:new, :create]
+  delete '/sessions', to: 'sessions#destroy', as: 'session'
+
+  resources :stock_checks, only: [:new, :create]
+  resources :users, only: [:new, :create]
 end

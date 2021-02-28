@@ -43,4 +43,10 @@ group :test do
   gem 'webdrivers'
 
   # -------- included by us --------
+  # separate gem on ruby, 3.0. selenium-webdriver isn't properly listing it as a dependency causing
+  # errors in tests. they've fixed this on 4.0.0, but it's in beta, atm.
+  #
+  # ref: https://github.com/rails/rails/issues/41502
+  # ref: https://github.com/SeleniumHQ/selenium/commit/526fd9d0de60a53746ffa982feab985fed09a278
+  gem 'rexml'
 end

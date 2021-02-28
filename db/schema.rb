@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 2021_02_27_215722) do
     t.string "password_digest"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["username"], name: "index_users_on_username", unique: true
+    t.index "lower((username)::text)", name: "index_users_on_username", unique: true
   end
 
 end

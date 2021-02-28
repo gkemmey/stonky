@@ -3,6 +3,8 @@
 <div class="w-full max-w-md mt-8">
   <%= tailwind_form_with scope: :session, url: sessions_path, method: :post do |f| %>
     <div class="grid grid-cols-1 gap-6 bg-gr">
+      <%= f.errors %>
+
       <%= f.label :username do %>
         <%= f.text_field :username, autocomplete: "username" %>
       <% end %>
@@ -11,14 +13,12 @@
         <%= f.password_field :password, autocomplete: "current-password" %>
       <% end %>
 
-      <%= f.submit "Submit", class: [
-                                      "bg-green-500",
-                                      "hover:bg-green-700",
-                                      "px-4",
-                                      "py-2",
-                                      "rounded",
-                                      "text-white"
-                                    ].join(" ") %>
+      <%= f.submit "Sign in" %>
+
+      <p>
+        Don't have an account? Create one
+        <%= link_to "here", new_user_path, class: "underline text-blue-600 hover:text-blue-800" %>.
+      </p>
     </div>
   <% end %>
 </div>

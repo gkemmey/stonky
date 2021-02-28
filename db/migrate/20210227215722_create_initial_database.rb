@@ -6,6 +6,6 @@ class CreateInitialDatabase < ActiveRecord::Migration[6.1]
 
       t.timestamps
     end
-    add_index :users, :username, unique: true
+    add_index :users, 'lower(username)', name: 'index_users_on_username', unique: true
   end
 end
