@@ -50,4 +50,6 @@ group :test do
   # ref: https://github.com/rails/rails/issues/41502
   # ref: https://github.com/SeleniumHQ/selenium/commit/526fd9d0de60a53746ffa982feab985fed09a278
   gem 'rexml'
+  gem 'sinatra'
+  gem 'webmock'
 end
