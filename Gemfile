@@ -19,6 +19,7 @@ gem 'webpacker', '~> 5.0'
 # gem 'redis', '~> 4.0'            # optional rails include
 
 # -------- included by us --------
+gem 'http'
 
 group :development, :test do
   # -------- rails included --------

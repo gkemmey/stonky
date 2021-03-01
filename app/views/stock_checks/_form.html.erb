@@ -1,0 +1,19 @@
+<%= tailwind_form_with url: stock_check_path(":stock_symbol"),
+                       method: :get,
+                       data: {
+                         controller: "user-provided-link-to",
+                         action: "user-provided-link-to#submit"
+                       } do |f| %>
+
+  <div class="grid grid-cols-1 gap-6 bg-gr">
+    <%= f.label :stock_symbol do %>
+      <%= f.text_field :stock_symbol, name: nil,
+                                      data: {
+                                        user_provided_link_to_target: "input",
+                                        replaces: ":stock_symbol"
+                                      } %>
+    <% end %>
+
+    <%= f.submit "Check" %>
+  </div>
+<% end %>

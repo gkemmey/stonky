@@ -1,0 +1,11 @@
+<h2 class="text-2xl font-bold"><%= params[:stock_symbol].upcase %></h2>
+
+<% if @quote %>
+  <p>Open price: <span>$<%= @quote.open_price %></span></p>
+<% end %>
+
+<div class="w-full max-w-md mt-8">
+  <h3 class="mb-6 font-bold">Try another?</h3>
+
+  <%= render partial: "form" %>
+</div>
