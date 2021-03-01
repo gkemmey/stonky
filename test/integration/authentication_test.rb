@@ -41,8 +41,15 @@ class AuthenticationTest < ActionDispatch::IntegrationTest
     assert flash.rendered.include?("You must be signed out to access this page")
   end
 
-  # TODO - test_stores_location_and_redirects_back_after_logging_in
-  #      - need more than just root path
+  def test_stores_location_and_redirects_back_after_logging_in
+    get stock_check_path(:SRNT)
+
+    assert_equal "You must be signed in to access this page", flash[:warning]
+    assert_redirected_to new_session_path
+
+    sign_in_as users(:mal)
+    assert_redirected_to stock_check_path(:SRNT)
+  end
 
   private
 
